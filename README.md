@@ -29,13 +29,13 @@ You can also install CML by downloading and executing the installation script di
 - Using **curl**:
 
   ```bash
-  bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/main/install.sh)
+  bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/install.sh)
   ```
 
 - Using **wget**:
 
   ```bash
-  bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/main/install.sh)
+  bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/install.sh)
   ```
 
 #### Example
@@ -43,7 +43,7 @@ You can also install CML by downloading and executing the installation script di
 To install CML using the installation script with `curl`, run:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/install.sh)
 ```
 
 ### Method 3: Manual Installation
