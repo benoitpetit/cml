@@ -38,43 +38,43 @@ You can also install CML by downloading and executing the installation script di
   bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/install.sh)
   ```
 
-#### Example
+## Uninstallation
 
-To install CML using the installation script with `curl`, run:
+To uninstall CML, you can run the uninstallation script provided in the repository.
 
-```bash
-bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/install.sh)
-```
+### Using the Uninstallation Script
 
-### Method 3: Manual Installation
+You can uninstall CML by executing the uninstallation script directly from your terminal. Use one of the following commands:
 
-If you prefer manual installation, download the binary from the [releases page](https://github.com/benoitpetit/cml/releases) and place it in a directory in your `$PATH`, such as `/usr/local/bin`.
+- Using **curl**:
 
-1. **Download the binary**:
+  ```bash
+  bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/uninstall.sh)
+  ```
 
-   For example, for Linux:
+- Using **wget**:
 
-   ```bash
-   wget https://github.com/benoitpetit/cml/releases/download/v1.0.0/cml-linux-amd64.tar.gz
-   ```
+  ```bash
+  bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/uninstall.sh)
+  ```
 
-   For Windows:
+### Manual Uninstallation
 
-   ```bash
-   wget https://github.com/benoitpetit/cml/releases/download/v1.0.0/cml-windows-amd64.zip
-   ```
+If you prefer manual uninstallation, you can remove the binary directly:
 
-2. **Extract and Install**:
-
-   For Linux:
+1. **Check if CML is installed**:
 
    ```bash
-   tar -xzvf cml-linux-amd64.tar.gz
-   sudo mv cml /usr/local/bin/
-   sudo chmod +x /usr/local/bin/cml
+   ls /usr/local/bin/cml
    ```
 
-   For Windows, extract the ZIP file and move `cml.exe` to a directory accessible in your PATH.
+   If the binary exists, you can remove it.
+
+2. **Remove the Binary**:
+
+   ```bash
+   sudo rm /usr/local/bin/cml
+   ```
 
 ## Usage
 
@@ -110,14 +110,9 @@ While viewing logs, you can navigate using the following controls:
 - **End**: Go to the last page.
 - **Ctrl+C or Q**: Exit the application.
 
-## Requirements
-
-- **Go**: Version 1.16 or higher is required.
-- **Terminal**: A terminal that supports ANSI escape codes.
-
 ## Troubleshooting
 
-If you encounter issues during installation:
+If you encounter issues during installation or uninstallation:
 
 1. **Binary Not Found**: Ensure the download URL is correct and the binary exists.
 2. **Permissions**: If you receive permission errors, check the executable permissions with `ls -l /usr/local/bin/cml` and adjust as necessary.
