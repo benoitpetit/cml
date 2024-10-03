@@ -5,7 +5,7 @@ set -e
 
 # Define the binary name and the latest release URL
 BINARY_NAME="cml"
-VERSION="v1.0.0"
+VERSION="v1.1.0"
 RELEASE_URL="https://github.com/benoitpetit/cml/releases/download/${VERSION}" # Updated to use the correct version URL
 
 # Function to install CML on Debian-based systems
