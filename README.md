@@ -2,7 +2,7 @@
 
 ## Overview
 
-**CML** is a command-line tool for viewing, filtering, and exporting log files. It provides a user-friendly interface for navigating log entries and applying various filters to find relevant information quickly.
+**CML** is a command-line tool for viewing, filtering, and exporting log files. It provides a user-friendly interface for navigating log entries and applying various filters to quickly find relevant information.
 
 ## Features
 
@@ -38,9 +38,43 @@ You can also install CML by downloading and executing the installation script di
   bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/main/install.sh)
   ```
 
-### Manual Installation
+#### Example
+
+To install CML using the installation script with `curl`, run:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/benoitpetit/cml/main/install.sh)
+```
+
+### Method 3: Manual Installation
 
 If you prefer manual installation, download the binary from the [releases page](https://github.com/benoitpetit/cml/releases) and place it in a directory in your `$PATH`, such as `/usr/local/bin`.
+
+1. **Download the binary**:
+
+   For example, for Linux:
+
+   ```bash
+   wget https://github.com/benoitpetit/cml/releases/download/v1.0.0/cml-linux-amd64.tar.gz
+   ```
+
+   For Windows:
+
+   ```bash
+   wget https://github.com/benoitpetit/cml/releases/download/v1.0.0/cml-windows-amd64.zip
+   ```
+
+2. **Extract and Install**:
+
+   For Linux:
+
+   ```bash
+   tar -xzvf cml-linux-amd64.tar.gz
+   sudo mv cml /usr/local/bin/
+   sudo chmod +x /usr/local/bin/cml
+   ```
+
+   For Windows, extract the ZIP file and move `cml.exe` to a directory accessible in your PATH.
 
 ## Usage
 
