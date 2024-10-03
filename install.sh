@@ -15,12 +15,17 @@ install_debian_based() {
     sudo apt install -y wget
 
     # Download the binary
-    wget -O /usr/local/bin/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
+    echo "Downloading CML..."
+    wget -O /tmp/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
 
-    # Extract and make it executable
-    sudo tar -xzvf /usr/local/bin/$BINARY_NAME.tar.gz -C /usr/local/bin/
+    # Extract and move the binary
+    echo "Installing CML..."
+    sudo tar -xzvf /tmp/$BINARY_NAME.tar.gz -C /usr/local/bin/
     sudo chmod +x /usr/local/bin/$BINARY_NAME
-    sudo rm /usr/local/bin/$BINARY_NAME.tar.gz
+
+    # Clean up
+    rm /tmp/$BINARY_NAME.tar.gz
+    echo "CML installation completed successfully!"
 }
 
 # Function to install CML on Red Hat-based systems
@@ -29,12 +34,17 @@ install_redhat_based() {
     sudo dnf install -y wget || sudo yum install -y wget
 
     # Download the binary
-    wget -O /usr/local/bin/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
+    echo "Downloading CML..."
+    wget -O /tmp/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
 
-    # Extract and make it executable
-    sudo tar -xzvf /usr/local/bin/$BINARY_NAME.tar.gz -C /usr/local/bin/
+    # Extract and move the binary
+    echo "Installing CML..."
+    sudo tar -xzvf /tmp/$BINARY_NAME.tar.gz -C /usr/local/bin/
     sudo chmod +x /usr/local/bin/$BINARY_NAME
-    sudo rm /usr/local/bin/$BINARY_NAME.tar.gz
+
+    # Clean up
+    rm /tmp/$BINARY_NAME.tar.gz
+    echo "CML installation completed successfully!"
 }
 
 # Function to install CML on openSUSE
@@ -43,12 +53,17 @@ install_opensuse() {
     sudo zypper install -y wget
 
     # Download the binary
-    wget -O /usr/local/bin/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
+    echo "Downloading CML..."
+    wget -O /tmp/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
 
-    # Extract and make it executable
-    sudo tar -xzvf /usr/local/bin/$BINARY_NAME.tar.gz -C /usr/local/bin/
+    # Extract and move the binary
+    echo "Installing CML..."
+    sudo tar -xzvf /tmp/$BINARY_NAME.tar.gz -C /usr/local/bin/
     sudo chmod +x /usr/local/bin/$BINARY_NAME
-    sudo rm /usr/local/bin/$BINARY_NAME.tar.gz
+
+    # Clean up
+    rm /tmp/$BINARY_NAME.tar.gz
+    echo "CML installation completed successfully!"
 }
 
 # Check the OS and install accordingly
@@ -75,4 +90,3 @@ else
     exit 1
 fi
 
-echo "CML installation completed successfully!"
