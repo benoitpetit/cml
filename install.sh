@@ -5,7 +5,8 @@ set -e
 
 # Define the binary name and the latest release URL
 BINARY_NAME="cml"
-RELEASE_URL="https://github.com/benoitpetit/cml/releases/latest/download" # Replace with your repository URL
+VERSION="v1.0.0"
+RELEASE_URL="https://github.com/benoitpetit/cml/releases/download/${VERSION}" # Updated to use the correct version URL
 
 # Function to install CML on Debian-based systems
 install_debian_based() {
@@ -14,10 +15,12 @@ install_debian_based() {
     sudo apt install -y wget
 
     # Download the binary
-    wget -O /usr/local/bin/$BINARY_NAME $RELEASE_URL/$BINARY_NAME-linux-amd64
+    wget -O /usr/local/bin/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
 
-    # Make it executable
+    # Extract and make it executable
+    sudo tar -xzvf /usr/local/bin/$BINARY_NAME.tar.gz -C /usr/local/bin/
     sudo chmod +x /usr/local/bin/$BINARY_NAME
+    sudo rm /usr/local/bin/$BINARY_NAME.tar.gz
 }
 
 # Function to install CML on Red Hat-based systems
@@ -26,10 +29,12 @@ install_redhat_based() {
     sudo dnf install -y wget || sudo yum install -y wget
 
     # Download the binary
-    wget -O /usr/local/bin/$BINARY_NAME $RELEASE_URL/$BINARY_NAME-linux-amd64
+    wget -O /usr/local/bin/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
 
-    # Make it executable
+    # Extract and make it executable
+    sudo tar -xzvf /usr/local/bin/$BINARY_NAME.tar.gz -C /usr/local/bin/
     sudo chmod +x /usr/local/bin/$BINARY_NAME
+    sudo rm /usr/local/bin/$BINARY_NAME.tar.gz
 }
 
 # Function to install CML on openSUSE
@@ -38,10 +43,12 @@ install_opensuse() {
     sudo zypper install -y wget
 
     # Download the binary
-    wget -O /usr/local/bin/$BINARY_NAME $RELEASE_URL/$BINARY_NAME-linux-amd64
+    wget -O /usr/local/bin/$BINARY_NAME.tar.gz $RELEASE_URL/$BINARY_NAME-linux-amd64.tar.gz
 
-    # Make it executable
+    # Extract and make it executable
+    sudo tar -xzvf /usr/local/bin/$BINARY_NAME.tar.gz -C /usr/local/bin/
     sudo chmod +x /usr/local/bin/$BINARY_NAME
+    sudo rm /usr/local/bin/$BINARY_NAME.tar.gz
 }
 
 # Check the OS and install accordingly
