@@ -1,4 +1,3 @@
-
 # Check My Logs (CML)
 
 ## Overview
@@ -16,6 +15,14 @@
 
 ## Installation
 
+### Prerequisites
+
+- **Operating System**: Linux
+- **Required Tools**:
+  - `wget` (download tool)
+  - `tar` (extraction tool)
+- **Administrator Access**: You must have `sudo` privileges to install software and move files into system directories.
+
 ### Method 1: Using `go install`
 
 To install **CML** using Go, ensure you have Go installed:
@@ -32,7 +39,7 @@ Install **CML** with:
 go install github.com/benoitpetit/cml@latest
 ```
 
-This command installs CML in your `$GOPATH/bin`.
+This command installs CML in your `$GOPATH/bin`. Ensure that `$GOPATH/bin` is included in your system's `$PATH` to execute `cml` from anywhere.
 
 ### Method 2: Using the Installation Script
 
@@ -50,7 +57,63 @@ You can install **CML** by running the installation script directly from the rep
   bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/hack/install.sh)
   ```
 
-**Note**: Ensure that the URLs point correctly to the `/hack/install.sh` script in your repository. Replace `master` with the appropriate branch if necessary.
+**Note**: Ensure that the URLs correctly point to the `/hack/install.sh` script in the repository. Replace `master` with the appropriate branch if necessary.
+
+### Method 3: Manual Installation
+
+Follow the steps below to manually install **CML** on your Linux system.
+
+#### Installation Steps
+
+1. **Download the CML Binary:**
+
+   Use `wget` to download the CML tarball from the official GitHub repository.
+
+   ```bash
+   wget -O /tmp/cml.tar.gz https://github.com/benoitpetit/cml/releases/download/v1.2.0/cml-linux-amd64.tar.gz
+   ```
+
+   *Replace `v1.2.0` with the desired version if a newer release is available.*
+
+2. **Extract the Binary and Move to `/usr/local/bin`:**
+
+   Use `tar` to extract the downloaded file and move the `cml` binary to a directory included in your `$PATH` for easy execution.
+
+   ```bash
+   sudo tar -xzvf /tmp/cml.tar.gz -C /usr/local/bin/
+   ```
+
+3. **Make the Binary Executable:**
+
+   Ensure that the `cml` binary has the necessary execution permissions.
+
+   ```bash
+   sudo chmod +x /usr/local/bin/cml
+   ```
+
+4. **Clean Up Temporary Files:**
+
+   Remove the downloaded tarball to free up space.
+
+   ```bash
+   rm /tmp/cml.tar.gz
+   ```
+
+5. **Verify the Installation:**
+
+   Confirm that **CML** has been installed correctly by checking its version.
+
+   ```bash
+   cml --version
+   ```
+
+   You should see output similar to:
+
+   ```
+   cml version v1.2.0
+   ```
+
+---
 
 ## Uninstallation
 
@@ -70,21 +133,29 @@ To uninstall **CML**, run the uninstallation script from the repository:
   bash <(wget -qO - https://raw.githubusercontent.com/benoitpetit/cml/refs/heads/master/hack/uninstall.sh)
   ```
 
+**Note**: Ensure that the URLs correctly point to the `/hack/uninstall.sh` script in the repository. Replace `master` with the appropriate branch if necessary.
+
 ### Manual Uninstallation
 
 To manually remove **CML**, follow these steps:
 
-1. Check if **CML** is installed:
+1. **Check if CML is Installed:**
+
+   Verify the presence of the `cml` binary in `/usr/local/bin`.
 
    ```bash
    ls /usr/local/bin/cml
    ```
 
-2. If the binary exists, remove it with:
+2. **Remove the Binary if It Exists:**
+
+   If the `cml` binary is found, remove it using the following command:
 
    ```bash
    sudo rm /usr/local/bin/cml
    ```
+
+---
 
 ## Usage
 
@@ -155,9 +226,34 @@ This will save the filtered logs to `exported_logs.txt`.
 
 If you encounter issues during installation or use, here are some common solutions:
 
-1. **Binary Not Found**: Check if the download URL is correct and if the binary exists in the expected directory.
-2. **Permission Issues**: Ensure **CML** has executable permissions. If needed, adjust permissions using `chmod +x /usr/local/bin/cml`.
-3. **Missing Dependencies**: If certain commands fail due to missing dependencies (e.g., `zip`, `curl`), install the necessary tools using your package manager (e.g., `apt`, `brew`, `dnf`).
+1. **Binary Not Found**: Check if the download URL is correct and if the binary exists in the expected directory (`/usr/local/bin`).
+
+2. **Permission Issues**: Ensure **CML** has executable permissions. If needed, adjust permissions using:
+
+   ```bash
+   sudo chmod +x /usr/local/bin/cml
+   ```
+
+3. **Missing Dependencies**: If certain commands fail due to missing dependencies (e.g., `wget`, `tar`), install the necessary tools using your package manager. For example:
+
+   - **Debian/Ubuntu**:
+
+     ```bash
+     sudo apt update
+     sudo apt install -y wget tar
+     ```
+
+   - **Red Hat/Fedora**:
+
+     ```bash
+     sudo dnf install -y wget tar
+     ```
+
+   - **openSUSE**:
+
+     ```bash
+     sudo zypper install -y wget tar
+     ```
 
 ## Contributing
 
@@ -165,6 +261,11 @@ Contributions are welcome! To contribute:
 
 1. Fork the repository.
 2. Clone your fork locally:
+   
+   ```bash
+   git clone https://github.com/your-username/cml.git
+   ```
+   
 3. Make your changes, and push to your fork.
 4. Create a pull request from your fork to the main repository.
 
